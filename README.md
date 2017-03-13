@@ -1,5 +1,5 @@
 # angular-music-search
-this is a music search using spotify and angular
+this is a music search using spotify and angular , the main build application is in dist/
 
 ## installation Guide
 
