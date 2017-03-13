@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/theo4u/angular-music-search/issues"
   },
-  "homepage": "https://github.com/theo4u/angular-music-search#readme"
+  "homepage": "https://github.com/theo4u/angular-music-search#readme",
+  "devDependencies": {
+    "gulp": "git+https://git@github.com/gulpjs/gulp.git#4.0"
+  }
 }
