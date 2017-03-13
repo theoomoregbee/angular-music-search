@@ -1,0 +1,24 @@
+{
+  "name": "angular-music-search",
+  "description": "this is used to search through spotify api",
+  "main": "web.js",
+  "authors": [
+    "Theophilus O. Omoregbee <theo4u@ymail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "search",
+    "spotify",
+    "angular",
+    "music"
+  ],
+  "homepage": "https://github.com/theo4u/angular-music-search",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

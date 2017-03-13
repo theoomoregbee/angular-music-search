@@ -1,0 +1,25 @@
+{
+  "name": "angular-music-search",
+  "version": "1.0.0",
+  "description": "this is used to search through spotify api",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theo4u/angular-music-search.git"
+  },
+  "keywords": [
+    "search",
+    "spotify",
+    "angular",
+    "music"
+  ],
+  "author": "Theophilus O. Omoregbee <theo4u@ymail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theo4u/angular-music-search/issues"
+  },
+  "homepage": "https://github.com/theo4u/angular-music-search#readme"
+}
