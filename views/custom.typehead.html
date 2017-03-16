@@ -1,0 +1,8 @@
+<style>
+
+</style>
+
+<a>
+    <img ng-src="{{match.model.image.url}}" style="width: {{match.model.image.width}}, height: {{match.model.image.height}}">
+    <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+</a>

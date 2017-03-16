@@ -14,6 +14,7 @@
         vm.updateSelectedTypes = updateSelectedTypes;
         vm.search = search;
         vm.searching = false;
+        vm.getSuggestion = getSuggestion;
 
 
         /**
@@ -28,6 +29,28 @@
             } else
                 vm.selected_filter.splice(vm.selected_filter.indexOf(type), 1);
         }
+
+
+        /**
+         * this is used with our typehead to help get the query in album since it encompasses artist tracks etc
+         *
+         * @param query
+         * @return {*}
+         */
+        function getSuggestion(query) {
+
+            if(!query){
+                return;
+            }
+
+            return Spotify.search(["album"], query, 0, Constants.DEFAULT_TYPEHEAD_ITEM)
+                .then(function (response) {
+                    return response.data.albums.items.map(function (item) {
+                        return {name:item.name, image:item.images[2]};
+                    });
+                });
+        }
+
 
         /**
          * this is used to perform search to our spotiy
@@ -85,7 +108,6 @@
         function processSearch(query, filter, limit, offset, success_cb, failure_cb) {
             return Spotify.search(filter, query, offset, limit).then(success_cb, failure_cb);
         }
-
 
     }
 
