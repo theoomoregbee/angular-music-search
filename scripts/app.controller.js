@@ -70,8 +70,8 @@
 
             vm.searching = true;
             Spotify.search(vm.selected_filter, query).then(function (success) {
-                console.log(success);
                 vm.searching = false;
+                console.log(success);
                 /**
                  * map result key of the search to our variable handling it
                  */
