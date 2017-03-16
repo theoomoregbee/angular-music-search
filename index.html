@@ -77,7 +77,7 @@
                            typeahead-template-url="views/custom.typehead.html"
                            typeahead-show-hint="true" typeahead-min-length="0">
                     <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="mainCtrl.search(query)"><span
+                    <button ng-disabled="!query || query===''" class="btn btn-default" type="button" ng-click="mainCtrl.search(query)"><span
                             class="glyphicon glyphicon-search"></span></button>
                 </span>
                 </div>

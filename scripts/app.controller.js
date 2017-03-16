@@ -39,42 +39,17 @@
          */
         function getSuggestion(query) {
 
-            if(!query){
+            if (!query)
                 return;
-            }
+
 
             return Spotify.search(["album"], query, 0, Constants.DEFAULT_TYPEHEAD_ITEM)
                 .then(function (response) {
                     return response.data.albums.items.map(function (item) {
-                        return {name:item.name, image:item.images[2]};
+                        return {name: item.name, image: item.images[2]};
                     });
                 });
         }
-
-
-        /**
-         * this is used to perform search to our spotiy
-         * where it handles debounce of query entered as the user is searching for auto search type head
-         *
-         * @see processSearch
-         *
-         * @param query
-         */
-        function searchAuto(query) {
-            vm.timer;//holds our timer for us
-
-            $timeout.cancel(vm.timer);//cancel previous search
-
-            /**
-             * debounce implementation
-             */
-            vm.timer = $timeout(function () {
-                vm.timer = undefined;
-
-
-            }, Constants.DEFAULT_DEBOUNCE_TIME);
-        }
-
 
         /**
          * this performs search
@@ -84,6 +59,9 @@
          * @param query
          */
         function search(query) {
+            if (!query || query === "")
+                return;
+
             vm.searching = true;
             Spotify.search(vm.selected_filter, query).then(function (success) {
                 console.log(success);
