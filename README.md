@@ -7,7 +7,7 @@ this is a music search using spotify and angular , the main build application is
 * Artist and Album Search (using directives)
 * Using service to handle interaction with spotify
 * On Artist clicked display albums 
-* coming soon tracks and playlist (no time)
+* coming soon tracks and playlist (no time, remaining directive design)
 
 
 

@@ -22,7 +22,7 @@
 
     AlbumsController.$inject = ["$scope"];
     function AlbumsController($scope) {
-        $scope.currentPage = $scope.data.offset + $scope.data.limit;
+        $scope.currentPage = $scope.data.offset + $scope.data.items.length;
         console.log("album directive", $scope.data);
     }
 

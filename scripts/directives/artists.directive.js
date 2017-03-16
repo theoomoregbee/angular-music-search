@@ -22,8 +22,13 @@
 
     ArtistsController.$inject = ["$scope"];
     function ArtistsController($scope) {
-        $scope.currentPage = $scope.data.offset + $scope.data.limit;
+        $scope.currentPage = $scope.data.offset + $scope.data.items.length;
         console.log("artist directive", $scope.data);
+
+
+
+
+
     }
 
 })();
