@@ -11,9 +11,9 @@
     angular.module("MusicSearch")
         .factory("Spotify", SpotifyService);
 
-    Spotify.$inject = ["$http"];//inject any external library if need be
+    SpotifyService.$inject = ["$http"];//inject any external library if need be
 
-    function Spotify($http) {
+    function SpotifyService($http) {
         var spotify_url = "https://api.spotify.com";
         var searchTypes = ["album", "artist", "playlist", "track"];
         return {

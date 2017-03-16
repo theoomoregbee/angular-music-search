@@ -7,6 +7,7 @@
         "ngSanitize",
         "ui.router",
         "ngStorage",
-        "ngFx"]);
+        "ngFx",
+        "ui.bootstrap"]);
 
 })();
