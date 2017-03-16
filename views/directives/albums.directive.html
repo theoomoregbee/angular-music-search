@@ -1,0 +1,36 @@
+<style>
+    .our-thumbnail-group h3 {
+        font-size: 14px;
+        width: initial;
+        margin-top: -12px;
+        font-weight: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .our-thumbnail-group p {
+        margin-top: -8px;
+        color: rgba(58, 52, 52, 0.61);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: initial;
+        font-size: 13px;
+
+    }
+</style>
+<div class="row">
+
+    <div class="col-xs-6 col-md-3 our-thumbnail-group" ng-repeat="item in data.items">
+        <a href="#" class="thumbnail">
+            <img ng-src="{{item.images[1].url}}" alt="{{item.name}}">
+        </a>
+        <h3><a href="{{item.external_urls.spotify}}">{{item.name}}</a></h3>
+        <p>
+            <span ng-repeat="artist in item.artists">
+            <a href="{{artist.external_urls.spotify}}"> {{artist.name}} </a> {{$last?'':','}}
+        </span>
+        </p>
+    </div>
+</div>
