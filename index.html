@@ -59,7 +59,7 @@
                                 <div class="checkbox" ng-repeat="type in mainCtrl.search_types">
                                     <label>
                                         <input type="checkbox" ng-model="check" ng-checked="mainCtrl.selected_filter.indexOf(type)>-1"
-                                               ng-change="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
+                                               ng-click="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
                                     </label>
                                 </div>
                             </div>
@@ -67,10 +67,9 @@
 
 
                     </div>
-                    <input type="hidden" name="search_param" value="all" id="search_param">
-                    <input type="text" class="form-control" name="x" placeholder="Search artist or album...">
+                    <input type="text" class="form-control" ng-model="query" placeholder='Search  by {{mainCtrl.selected_filter.join(" or ")}}...'>
                     <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span
+                    <button class="btn btn-default" type="button" ng-click="mainCtrl.search(query)"><span
                             class="glyphicon glyphicon-search"></span></button>
                 </span>
                 </div>
@@ -107,7 +106,7 @@
 <script type="text/javascript" src="scripts/app.module.js"></script>
 
 <!--Configurations-->
-<script type="text/javascript" src="scripts/app.config.js"></script>
+<script type="text/javascript" src="scripts/app.settings.js"></script>
 
 
 <!--directives-->

@@ -28,7 +28,7 @@
              *
              * @return promise
              */
-            search: function (searchTypes, q, limit, offset) {
+            search: function (searchTypes, q, offset, limit) {
                 limit = limit || 20;
                 offset = offset || 0;
                 q += "*";//adding wildcard for many record searching containing the search query
@@ -38,13 +38,7 @@
                  */
                 var param = {limit: limit, offset: offset, q: q, type: searchTypes.join(",")};
 
-                var send = {
-                    method: "GET",
-                    url: url,
-                    params: $.param(param)
-                };
-
-                return $http(send);
+                return $http.get(url, {params: param});
             }
         }
     }
