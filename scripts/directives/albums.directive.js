@@ -12,7 +12,8 @@
         return {
             restrict: 'E',
             scope: {
-                data: "="
+                data: "=",
+                currentPage: "="
             },
             templateUrl: "views/directives/albums.directive.html",
             controller: AlbumsController
@@ -21,7 +22,8 @@
 
     AlbumsController.$inject = ["$scope"];
     function AlbumsController($scope) {
-        console.log($scope.data);
+        $scope.currentPage = $scope.data.offset + $scope.data.limit;
+        console.log("album directive", $scope.data);
     }
 
 })();

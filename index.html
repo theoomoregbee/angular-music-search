@@ -94,23 +94,32 @@
 
 
                     <!--Album Design-->
-                    <div ng-if="mainCtrl.search_result.albums.total > 0">
-                        <h4>Albums <span class="badge">{{mainCtrl.search_result.albums.total}}</span></h4>
-                        <albums data="mainCtrl.search_result.albums"></albums>
+                    <div ng-if="mainCtrl.search_result.albums.total > 0" ng-init="count=0">
+                        <h4>Albums <span class="badge">{{count}} of {{mainCtrl.search_result.albums.total}}</span></h4>
+                        <albums data="mainCtrl.search_result.albums" current-page="count"></albums>
                     </div>
                     <!--Album Design End-->
 
 
                     <!--Artist Design-->
-                    <artists data="mainCtrl.artists"></artists>
+                    <div ng-if="mainCtrl.search_result.artists.total > 0" ng-init="count=0">
+                        <h4>Artists <span class="badge">{{count}} of {{mainCtrl.search_result.artists.total}}</span></h4>
+                        <artists data="mainCtrl.search_result.artists" current-page="count"></artists>
+                    </div>
                     <!--Artist Design End-->
 
                     <!--Track Design-->
-                    <tracks data="mainCtrl.tracks"></tracks>
+                    <div ng-if="mainCtrl.search_result.tracks.total > 0" ng-init="count=0">
+                        <h4>Tracks <span class="badge">{{count}} of {{mainCtrl.search_result.tracks.total}}</span></h4>
+                        <tracks data="mainCtrl.search_result.tracks" current-page="count"></tracks>
+                    </div>
                     <!--Track Design End-->
 
                     <!--Playlist-->
-                    <playlists data="mainCtrl.playlists"></playlists>
+                    <div ng-if="mainCtrl.search_result.playlists.total > 0" ng-init="count=0">
+                        <h4>Playlists <span class="badge">{{count}} of {{mainCtrl.search_result.playlists.total}}</span></h4>
+                        <artists data="mainCtrl.search_result.playlists" current-page="count"></artists>
+                    </div>
                     <!--Playlist end-->
 
 
