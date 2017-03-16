@@ -16,10 +16,10 @@
         vm.searching = false;
         vm.getSuggestion = getSuggestion;
         vm.search_result = { //for the different type of search
-            albums: [],
-            artists: [],
-            playlists: [],
-            tracks: []
+            albums: {},
+            artists: {},
+            playlists: {},
+            tracks: {}
         };
 
 

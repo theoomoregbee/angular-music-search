@@ -90,11 +90,14 @@
 
                 <!--Search Result-->
                 <div class="row" style="margin-top: 30px">
-                    <h3>Search Result</h3>
+                    <h3>Search Result <i ng-if="mainCtrl.searching" class="fa fa-spinner fa-spin"></i></h3>
 
 
                     <!--Album Design-->
-                    <albums data="mainCtrl.albums"></albums>
+                    <div ng-if="mainCtrl.search_result.albums.total > 0">
+                        <h4>Albums <span class="badge">{{mainCtrl.search_result.albums.total}}</span></h4>
+                        <albums data="mainCtrl.search_result.albums"></albums>
+                    </div>
                     <!--Album Design End-->
 
 
@@ -151,12 +154,11 @@
 <!--Configurations-->
 <script type="text/javascript" src="scripts/app.settings.js"></script>
 
-
-<!--directives-->
-
 <!--services-->
 <script src="scripts/services/spotify.service.js"></script>
 
+<!--directives-->
+<script src="scripts/directives/albums.directive.js"></script>
 
 <!--controllers-->
 <script src="scripts/app.controller.js"></script>
