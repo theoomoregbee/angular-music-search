@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Search Application</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- build:js js/most_run_first.js -->
-    
+
     <!-- endbuild -->
 
     <!-- build:css css/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -24,37 +24,56 @@
     <!-- build:css css/app.css-->
     <link rel="stylesheet" href="styles/app.css">
     <!-- endbuild -->
-   
+
 </head>
 <body ng-controller="MainController as MainCtrl">
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-            <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#contains">Contains</a></li>
-                        <li><a href="#its_equal">It's equal</a></li>
-                        <li><a href="#greather_than">Greather than ></a></li>
-                        <li><a href="#less_than">Less than < </a></li>
-                        <li class="divider"></li>
-                        <li><a href="#all">Anything</a></li>
-                    </ul>
-                </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Search term...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+<!--Nav Bar Starts-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="images/spotify.png">
+            </a>
+            <a class="navbar-brand" href="#">
+                Music Search
+            </a>
+        </div>
+    </div>
+</nav>
+<!--Nav Bar Ends-->
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span id="search_concept">Filter by</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">Contains</a></li>
+                            <li><a href="#its_equal">It's equal</a></li>
+                            <li><a href="#greather_than">Greather than ></a></li>
+                            <li><a href="#less_than">Less than < </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#all">Anything</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input type="text" class="form-control" name="x" placeholder="Search artist or album...">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span
+                            class="glyphicon glyphicon-search"></span></button>
                 </span>
+                </div>
             </div>
         </div>
     </div>
-</div>
- 
+</section>
+
 
 <!--UI VIEWS WILL ENTER HERE-->
 <ui-view></ui-view>
@@ -76,7 +95,7 @@
 <!-- endbuild -->
 
 <!-- build:js js/main.js -->
-<!-- Our code here including here--> 
+<!-- Our code here including here-->
 
 <!--Modules-->
 <script type="text/javascript" src="scripts/app.module.js"></script>
@@ -85,22 +104,20 @@
 <script type="text/javascript" src="scripts/app.config.js"></script>
 
 
-
 <!--directives-->
-
 
 
 <!--controllers-->
 <script src="scripts/app.controller.js"></script>
- 
+
 <!-- endbuild -->
 
 
 <script>
-    $(document).ready(function(e){
-        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+    $(document).ready(function (e) {
+        $('.search-panel .dropdown-menu').find('a').click(function (e) {
             e.preventDefault();
-            var param = $(this).attr("href").replace("#","");
+            var param = $(this).attr("href").replace("#", "");
             var concept = $(this).text();
             $('.search-panel span#search_concept').text(concept);
             $('.input-group #search_param').val(param);
