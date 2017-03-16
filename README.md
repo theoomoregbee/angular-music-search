@@ -2,6 +2,16 @@
 this is a music search using spotify and angular , the main build application is in dist/
 [Spotify Api Endpoint](https://developer.spotify.com/web-api/search-item/)
 
+## Features
+* Type Head
+* Artist and Album Search (using directives)
+* Using service to handle interaction with spotify
+* On Artist clicked display albums 
+* coming soon tracks and playlist (no time)
+
+
+
+
 ## installation Guide
 
 * install node
