@@ -32,7 +32,7 @@ module.exports = function (config) {
             './views/**/*.html',
 
 
- 
+
 
             './tests/**/*.js'
         ],
