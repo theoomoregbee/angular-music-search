@@ -1,5 +1,6 @@
 # angular-music-search
 this is a music search using spotify and angular , the main build application is in dist/
+[Spotify Api Endpoint](https://developer.spotify.com/web-api/search-item/)
 
 ## installation Guide
 
