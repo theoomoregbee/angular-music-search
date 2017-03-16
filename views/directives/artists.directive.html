@@ -1,0 +1,92 @@
+<style>
+    .artists {
+        -webkit-box-shadow: inset 1px 0px 0px 0px rgba(133, 121, 133, 0.26);
+        -moz-box-shadow: inset 1px 0px 0px 0px rgba(133, 121, 133, 0.26);
+        box-shadow: inset 1px 0px 0px 0px rgba(133, 121, 133, 0.26);
+    }
+
+    .star-ratings {
+        unicode-bidi: bidi-override;
+        color: #c5c5c5;
+        /*font-size: 50px;*/
+        height: 50px;
+        width: 250px;
+        margin: 1em auto;
+        position: relative;
+        padding: 0;
+    }
+
+    .star-ratings .star-ratings-top {
+        color: #0f0d00;
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        left: 0px;
+        overflow: hidden;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .artists h3 {
+        font-size: 15px;
+        margin-top: 1px;
+        margin-bottom: -14px;
+    }
+
+    .label-inverse {
+        background-color: #222;
+    }
+
+    .genres {
+        font-size: 12px;
+        color: rgba(51, 50, 50, 0.66);
+    }
+
+</style>
+<div class="artists">
+    <div class="row">
+        <div class="col-md-1">
+            <img src="" alt="{{item.name}}" class="img-circle">
+        </div>
+        <div class="col-md-11">
+
+        </div>
+
+
+        <table class="table table-condensed">
+            <tr ng-repeat="item in data.items">
+                <td>
+                    <img src="{{item.images[2].url}}" alt="{{item.name}}" class="img-circle avatar">
+                </td>
+                <td>
+                    <h3>{{item.name}}</h3> <br>
+                    <span class="label label-inverse"> <i
+                            class="fa fa-users"></i> {{item.followers.total}} Followers</span>
+                    <br>
+                    <span class="genres">{{item.genres.join(", ")}}</span>
+                </td>
+                <td>
+
+                    <div class="star-ratings">
+                        <div class="star-ratings-top" style="width: {{item.popularity}}%">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    <a href="{{item.external_urls.spotify}}" role="button" class="btn btn-default btn-xs">
+                        <i class="fa fa-share"></i>
+                    </a>
+
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
