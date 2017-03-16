@@ -26,7 +26,7 @@
     <!-- endbuild -->
 
 </head>
-<body ng-controller="MainController as MainCtrl">
+<body ng-controller="MainController as mainCtrl" ng-cloak>
 
 <!--Nav Bar Starts-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,17 +50,22 @@
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="input-group">
                     <div class="input-group-btn search-panel">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span id="search_concept">Filter by</span> <span class="caret"></span>
+                        <button type="button" class="btn btn-default" popover-trigger="'outsideClick'" popover-placement="bottom-right" uib-popover-template="'my-filters.html'" popover-title="Filters">
+                            <span id="search_concept">Filter by {{mainCtrl.selected_filter.join(", ")}}</span> <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#contains">Contains</a></li>
-                            <li><a href="#its_equal">It's equal</a></li>
-                            <li><a href="#greather_than">Greather than ></a></li>
-                            <li><a href="#less_than">Less than < </a></li>
-                            <li class="divider"></li>
-                            <li><a href="#all">Anything</a></li>
-                        </ul>
+
+                        <script type="text/ng-template" id="my-filters.html">
+                            <div class="form-group">
+                                <div class="checkbox" ng-repeat="type in mainCtrl.search_types">
+                                    <label>
+                                        <input type="checkbox" ng-model="check" ng-checked="mainCtrl.selected_filter.indexOf(type)>-1"
+                                               ng-change="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
+                                    </label>
+                                </div>
+                            </div>
+                        </script>
+
+
                     </div>
                     <input type="hidden" name="search_param" value="all" id="search_param">
                     <input type="text" class="form-control" name="x" placeholder="Search artist or album...">
@@ -73,6 +78,7 @@
         </div>
     </div>
 </section>
+
 
 
 <!--UI VIEWS WILL ENTER HERE-->
@@ -114,19 +120,6 @@
 <script src="scripts/app.controller.js"></script>
 
 <!-- endbuild -->
-
-
-<script>
-    $(document).ready(function (e) {
-        $('.search-panel .dropdown-menu').find('a').click(function (e) {
-            e.preventDefault();
-            var param = $(this).attr("href").replace("#", "");
-            var concept = $(this).text();
-            $('.search-panel span#search_concept').text(concept);
-            $('.input-group #search_param').val(param);
-        });
-    });
-</script>
 
 </body>
 </html>

@@ -31,7 +31,7 @@
             search: function (searchTypes, q, limit, offset) {
                 limit = limit || 20;
                 offset = offset || 0;
-
+                q += "*";//adding wildcard for many record searching containing the search query
                 var url = spotify_url + "/v1/search";
                 /**
                  * let's form our url param
@@ -40,7 +40,7 @@
 
                 var send = {
                     method: "GET",
-                    url:url,
+                    url: url,
                     params: $.param(param)
                 };
 
