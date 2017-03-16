@@ -15,6 +15,12 @@
         vm.search = search;
         vm.searching = false;
         vm.getSuggestion = getSuggestion;
+        vm.search_result = { //for the different type of search
+            albums: [],
+            artists: [],
+            playlists: [],
+            tracks: []
+        };
 
 
         /**
@@ -66,26 +72,18 @@
             Spotify.search(vm.selected_filter, query).then(function (success) {
                 console.log(success);
                 vm.searching = false;
+                /**
+                 * map result key of the search to our variable handling it
+                 */
+                angular.forEach(vm.search_result, function (value, key) {
+                    vm.search_result[key] = success.data[key];
+                });
             }, function (failure) {
                 console.error(failure);
                 vm.searching = false;
             });
         }
 
-
-        /**
-         * this is the main search which handles the to and fro communication with our spotify service
-         * and it is used by the normal search and type head search
-         * @param query
-         * @param filter
-         * @param limit
-         * @param offset
-         * @param success_cb
-         * @param failure_cb
-         */
-        function processSearch(query, filter, limit, offset, success_cb, failure_cb) {
-            return Spotify.search(filter, query, offset, limit).then(success_cb, failure_cb);
-        }
 
     }
 

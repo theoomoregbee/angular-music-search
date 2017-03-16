@@ -48,40 +48,76 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-                <div class="input-group">
-                    <div class="input-group-btn search-panel">
-                        <button type="button" class="btn btn-default" popover-trigger="'outsideClick'"
-                                popover-placement="bottom-right" uib-popover-template="'my-filters.html'"
-                                popover-title="Filters">
-                            <span id="search_concept">Filter by {{mainCtrl.selected_filter.join(", ")}}</span> <span
-                                class="caret"></span>
-                        </button>
+                <!--Search Bar-->
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-btn search-panel">
+                            <button type="button" class="btn btn-default" popover-trigger="'outsideClick'"
+                                    popover-placement="bottom-right" uib-popover-template="'my-filters.html'"
+                                    popover-title="Filters">
+                                <span id="search_concept">Filter by {{mainCtrl.selected_filter.join(", ")}}</span> <span
+                                    class="caret"></span>
+                            </button>
 
-                        <script type="text/ng-template" id="my-filters.html">
-                            <div class="form-group">
-                                <div class="checkbox" ng-repeat="type in mainCtrl.search_types">
-                                    <label>
-                                        <input type="checkbox" ng-model="check"
-                                               ng-checked="mainCtrl.selected_filter.indexOf(type)>-1"
-                                               ng-click="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
-                                    </label>
+                            <script type="text/ng-template" id="my-filters.html">
+                                <div class="form-group">
+                                    <div class="checkbox" ng-repeat="type in mainCtrl.search_types">
+                                        <label>
+                                            <input type="checkbox" ng-model="check"
+                                                   ng-checked="mainCtrl.selected_filter.indexOf(type)>-1"
+                                                   ng-click="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                        </script>
+                            </script>
 
 
+                        </div>
+                        <input type="text" class="form-control" ng-model="query"
+                               placeholder='Search  by {{mainCtrl.selected_filter.join(" or ")}}...'
+                               uib-typeahead="album.name for album in mainCtrl.getSuggestion($viewValue)"
+                               typeahead-template-url="views/custom.typehead.html"
+                               typeahead-show-hint="true" typeahead-min-length="0">
+                        <span class="input-group-btn">
+                             <button ng-disabled="!query || query===''" class="btn btn-default" type="button"
+                                     ng-click="mainCtrl.search(query)"><span
+                                     class="glyphicon glyphicon-search"></span></button>
+                         </span>
                     </div>
-                    <input type="text" class="form-control" ng-model="query"
-                           placeholder='Search  by {{mainCtrl.selected_filter.join(" or ")}}...'
-                           uib-typeahead="album.name for album in mainCtrl.getSuggestion($viewValue)"
-                           typeahead-template-url="views/custom.typehead.html"
-                           typeahead-show-hint="true" typeahead-min-length="0">
-                    <span class="input-group-btn">
-                    <button ng-disabled="!query || query===''" class="btn btn-default" type="button" ng-click="mainCtrl.search(query)"><span
-                            class="glyphicon glyphicon-search"></span></button>
-                </span>
                 </div>
+                <!--Search Bar end-->
+
+
+                <!--Search Result-->
+                <div class="row" style="margin-top: 30px">
+                    <h3>Search Result</h3>
+
+
+                    <!--Album Design-->
+                    <albums data="mainCtrl.albums"></albums>
+                    <!--Album Design End-->
+
+
+                    <!--Artist Design-->
+                    <artists data="mainCtrl.artists"></artists>
+                    <!--Artist Design End-->
+
+                    <!--Track Design-->
+                    <tracks data="mainCtrl.tracks"></tracks>
+                    <!--Track Design End-->
+
+                    <!--Playlist-->
+                    <playlists data="mainCtrl.playlists"></playlists>
+                    <!--Playlist end-->
+
+
+                </div>
+                <!--Search Result End-->
+
+
             </div>
+
+
         </div>
     </div>
 </section>
