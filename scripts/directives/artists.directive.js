@@ -31,7 +31,17 @@
         $scope.currentPage = $scope.data.offset + $scope.data.items.length;
         console.log("artist directive", $scope.data);
         $scope.openAlbums = openAlbums;
+        $scope.paginator = {
+            total: $scope.data.total,
+            maxSize:9,
+            currentPage:1,
+            pageChanged: pageChanged
+        };
 
+        function pageChanged() {
+            console.log('Page changed to: ' + $scope.paginator.currentPage);
+        }
+        
         /**
          * this is used to open our modal oo
          * @param artist

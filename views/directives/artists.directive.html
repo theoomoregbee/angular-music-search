@@ -1,13 +1,5 @@
 <div class="artists">
     <div class="row">
-        <div class="col-md-1">
-            <img src="" alt="{{item.name}}" class="img-circle">
-        </div>
-        <div class="col-md-11">
-
-        </div>
-
-
         <table class="table table-condensed">
             <tr ng-repeat="item in data.items">
                 <td>
@@ -45,6 +37,9 @@
 
     </div>
 </div>
+
+<ul uib-pagination ng-change="paginator.pageChanged()" total-items="paginator.total" ng-model="paginator.currentPage"
+    max-size="paginator.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
 
 
 <script type="text/ng-template" id="artist.album.html">
