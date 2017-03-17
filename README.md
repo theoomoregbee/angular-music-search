@@ -9,6 +9,7 @@ this is a music search using spotify and angular , the main build application is
 * On Artist clicked display albums 
 * coming soon tracks and playlist (no time, remaining directive design)
 * paginated directive views
+* Tests specs
 
 
 
