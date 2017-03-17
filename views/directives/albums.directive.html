@@ -11,4 +11,18 @@
         </span>
         </p>
     </div>
+
 </div>
+
+<p>
+    <!--fetching indicator-->
+    <i ng-if="fetching" class="fa fa-spinner fa-spin paginator"></i>
+    <!--fetching indicator end-->
+</p>
+
+
+<!--paginator-->
+<ul uib-pagination ng-change="paginator.pageChanged()" total-items="paginator.total"
+    ng-model="paginator.currentPage"
+    max-size="paginator.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+<!--paginator end-->
