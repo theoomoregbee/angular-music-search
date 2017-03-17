@@ -69,6 +69,14 @@ gulp.task('copy-assets', function () {
         .pipe(gulp.dest(paths.dist + '/assets'));
 });
 
+//copy our assets and other minor files
+gulp.task('copy-fonts', function () {
+    return gulp.src(['./bower_components/bootstrap/fonts/*.woff2', './bower_components/bootstrap/fonts/*.woff', './bower_components/bootstrap/fonts/*.ttf',
+        './bower_components/font-awesome/fonts/*.woff2', './bower_components/font-awesome/fonts/*.woff', './bower_components/font-awesome/fonts/*.ttf'])
+        .pipe(gulp.dest(paths.dist + '/fonts'));
+});
+
+
 //helps compile all js and css into one file (minified) specified in the comment syntax pattern
 gulp.task('build-css-js-files', gulp.series('wiredep', function () {
     return gulp.src(paths.index)
@@ -90,7 +98,7 @@ gulp.task('clean', function () {
 });
 
 //final build for production
-gulp.task('build', gulp.series('clean', 'build-css-js-files', 'build-html', 'copy-images', 'copy-assets', function (done) {
+gulp.task('build', gulp.series('clean', 'build-css-js-files', 'build-html', 'copy-images', 'copy-assets', 'copy-fonts', function (done) {
     done();
 }));
 
@@ -141,4 +149,4 @@ gulp.task("serve", gulp.parallel('testWatcher', 'webserver', 'wiredep', 'watch')
 
 
 //this is when you want to work on build directly
-gulp.task("serve-build", gulp.parallel('webserver-build', 'build', 'watch-build'));
+gulp.task("serve-build", gulp.parallel('webserver-build', 'watch-build'));

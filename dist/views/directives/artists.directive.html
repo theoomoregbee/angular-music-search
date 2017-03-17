@@ -1,0 +1,17 @@
+<div class="artists"><div class="row"><div class="col-md-1"><img src="" alt="{{item.name}}" class="img-circle"></div><div class="col-md-11"></div><table class="table table-condensed"><tr ng-repeat="item in data.items"><td><img src="{{item.images[2].url}}" alt="{{item.name}}" class="img-circle avatar"></td><td><h3>{{item.name}}</h3><br><span class="label label-inverse"><i class="fa fa-users"></i> {{item.followers.total}} Followers</span><br><span class="genres">{{item.genres.join(", ")}}</span></td><td><div class="star-ratings"><div class="star-ratings-top" style="width:{};"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div></td><td><a ng-click="openAlbums(item)" role="button" class="btn btn-default btn-xs"><i class="fa fa-info"></i> Albums</a><br><a style="margin-top:1px" href="{{item.external_urls.spotify}}" role="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Profile</a></td></tr></table></div></div><script type="text/ng-template" id="artist.album.html"><div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{artistAlbumCtrl.artist.name}} Albums</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p align="center" ng-if="artistAlbumCtrl.loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </p>
+
+        <div ng-if="!artistAlbumCtrl.loading">
+            <h4>Albums <span class="badge">{{count}} of {{artistAlbumCtrl.albums.total}}</span></h4>
+            <albums data="artistAlbumCtrl.albums" current-page="count"></albums>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-inverse" type="button" ng-click="artistAlbumCtrl.cancel()">Close</button>
+    </div></script>
