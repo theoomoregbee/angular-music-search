@@ -74,9 +74,11 @@
                 console.log(success);
                 /**
                  * map result key of the search to our variable handling it
+                 * and the search item, so we can continue the search from each directive
                  */
                 angular.forEach(vm.search_result, function (value, key) {
                     vm.search_result[key] = success.data[key];
+                    vm.search_result[key].search = query;
                 });
             }, function (failure) {
                 console.error(failure);

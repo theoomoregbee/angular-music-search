@@ -38,10 +38,16 @@
             pageChanged: pageChanged
         };
 
+
+        /**
+         * this is used to trigger our reload function when the page changes
+         */
         function pageChanged() {
             console.log('Page changed to: ' + $scope.paginator.currentPage);
+
+
         }
-        
+
         /**
          * this is used to open our modal oo
          * @param artist
