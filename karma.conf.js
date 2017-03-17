@@ -19,21 +19,19 @@ module.exports = function (config) {
 
             './bower_components/jquery/dist/jquery.js',                             // angular
             './bower_components/angular/angular.js',                             // angular
-            './bower_components/angular-ui-router/release/angular-ui-router.js', // ui-router
             './node_modules/angular-mocks/angular-mocks.js',
             './bower_components/angular-animate/angular-animate.js',
             './bower_components/ngstorage/ngStorage.js',
-            './bower_components/gsap/src/minified/TweenMax.min.js',
-            './bower_components/ngFx/dist/ngFx.js',
-            './bower_components/angular-loading-bar/build/loading-bar.min.js',
-            './bower_components/angular-sanitize/angular-sanitize.min.js',
+            './bower_components/angular-loading-bar/build/loading-bar.js',
+            './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 
-
+            //views
             './views/**/*.html',
 
+            //modules
+            './scripts/app.module.js',
 
-
-
+            //tests
             './tests/**/*.js'
         ],
 
