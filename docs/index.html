@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MusicSearch">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Search Application</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    
+
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <!-- Our custom css here-->
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body ng-controller="MainController as mainCtrl" ng-cloak>
+
+<!--Nav Bar Starts-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="images/spotify.png">
+            </a>
+            <a class="navbar-brand" href="#">
+                Music Search
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/theo4u/angular-music-search">Fork on GitHub</a></li>
+        </ul>
+    </div>
+</nav>
+<!--Nav Bar Ends-->
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <!--Search Bar-->
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-btn search-panel">
+                            <button type="button" class="btn btn-default" popover-trigger="'outsideClick'"
+                                    popover-placement="bottom-right" uib-popover-template="'my-filters.html'"
+                                    popover-title="Filters">
+                                <span id="search_concept">Filter by {{mainCtrl.selected_filter.join(", ")}}</span> <span
+                                    class="caret"></span>
+                            </button>
+
+                            <script type="text/ng-template" id="my-filters.html">
+                                <div class="form-group">
+                                    <div class="checkbox" ng-repeat="type in mainCtrl.search_types">
+                                        <label>
+                                            <input type="checkbox" ng-model="check"
+                                                   ng-checked="mainCtrl.selected_filter.indexOf(type)>-1"
+                                                   ng-click="mainCtrl.updateSelectedTypes(check, type)"> {{type}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </script>
+
+
+                        </div>
+                        <input type="text" class="form-control" ng-model="query"
+                               placeholder='Search  by {{mainCtrl.selected_filter.join(" or ")}}...'
+                               uib-typeahead="album.name for album in mainCtrl.getSuggestion($viewValue)"
+                               typeahead-template-url="views/custom.typehead.html"
+                               typeahead-show-hint="true" typeahead-min-length="0">
+                        <span class="input-group-btn">
+                             <button ng-disabled="!query || query===''" class="btn btn-default" type="button"
+                                     ng-click="mainCtrl.search(query)"><span
+                                     class="glyphicon glyphicon-search"></span></button>
+                         </span>
+                    </div>
+                </div>
+                <!--Search Bar end-->
+
+
+                <!--Search Result-->
+                <div class="row" style="margin-top: 30px">
+                    <h3>Search Result <i ng-if="mainCtrl.searching" class="fa fa-spinner fa-spin"></i></h3>
+
+
+                    <!--Album Design-->
+                    <div ng-if="mainCtrl.search_result.albums" ng-init="count=0">
+                        <h4>Albums <span class="badge">{{count}} of {{mainCtrl.search_result.albums.total}}</span></h4>
+                        <albums data="mainCtrl.search_result.albums" current-page="count"></albums>
+                    </div>
+                    <!--Album Design End-->
+
+
+                    <!--Artist Design-->
+                    <div ng-if="mainCtrl.search_result.artists" ng-init="count=0">
+                        <h4>Artists <span class="badge">{{count}} of {{mainCtrl.search_result.artists.total}}</span></h4>
+                        <artists data="mainCtrl.search_result.artists" current-page="count"></artists>
+                    </div>
+                    <!--Artist Design End-->
+
+                    <!--Track Design-->
+                    <div ng-if="mainCtrl.search_result.tracks" ng-init="count=0">
+                        <h4>Tracks <span class="badge">{{count}} of {{mainCtrl.search_result.tracks.total}}</span></h4>
+                        <tracks data="mainCtrl.search_result.tracks" current-page="count"></tracks>
+                    </div>
+                    <!--Track Design End-->
+
+                    <!--Playlist-->
+                    <div ng-if="mainCtrl.search_result.playlists" ng-init="count=0">
+                        <h4>Playlists <span class="badge">{{count}} of {{mainCtrl.search_result.playlists.total}}</span></h4>
+                        <artists data="mainCtrl.search_result.playlists" current-page="count"></artists>
+                    </div>
+                    <!--Playlist end-->
+
+
+                </div>
+                <!--Search Result End-->
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!--UI VIEWS WILL ENTER HERE-->
+<ui-view></ui-view>
+
+<script src="js/vendors.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
