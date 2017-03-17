@@ -70,7 +70,24 @@ section {
     background-color: #222;
 }
 
+.btn-inverse {
+    color: #fff;
+    background-color: #222222;
+    border-color: #222222;
+}
+
 .genres {
     font-size: 12px;
     color: rgba(51, 50, 50, 0.66);
+}
+
+.modal-header {
+    padding: 8px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #222;
+    color: #fff;
+}
+
+.modal-footer {
+    padding: 6px;
 }

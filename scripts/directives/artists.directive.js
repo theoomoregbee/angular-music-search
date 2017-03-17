@@ -43,6 +43,8 @@
                 templateUrl: 'artist.album.html',
                 controller: ArtistAlbumController,
                 controllerAs: 'artistAlbumCtrl',
+                size: "lg",
+                backdrop: false,
                 resolve: {
                     artist: artist
                 }
