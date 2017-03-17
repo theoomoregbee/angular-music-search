@@ -39,7 +39,19 @@
                 var param = {limit: limit, offset: offset, q: q, type: searchTypes.join(",")};
 
                 return $http.get(url, {params: param});
+            },
+
+            /**
+             * used to return our albums belonging to a particular artist
+             * @param artist_id
+             */
+            getAlbums: function (artist_id) {
+                var limit = 15;
+                var url = spotify_url + "/v1/artists/" + artist_id + "/albums?limit=" + limit;
+
+                return $http.get(url);
             }
+
         }
     }
 

@@ -30,10 +30,14 @@
 
                 </td>
                 <td>
-                    <a href="{{item.external_urls.spotify}}" role="button" class="btn btn-default btn-xs">
-                        <i class="fa fa-share"></i>
+                    <a ng-click="openAlbums(item)" role="button" class="btn btn-default btn-xs">
+                        <i class="fa fa-info"></i> Albums
                     </a>
-
+                    <br>
+                    <a style="margin-top: 1px" href="{{item.external_urls.spotify}}" role="button"
+                       class="btn btn-default btn-xs">
+                        <i class="fa fa-share"></i> Profile
+                    </a>
                 </td>
             </tr>
         </table>
@@ -41,3 +45,24 @@
 
     </div>
 </div>
+
+
+<script type="text/ng-template" id="artist.album.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{artistAlbumCtrl.artist.name}} Albums</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p align="center" ng-if="artistAlbumCtrl.loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </p>
+
+        <div ng-if="!artistAlbumCtrl.loading">
+            <h4>Albums <span class="badge">{{count}} of {{artistAlbumCtrl.albums.total}}</span></h4>
+            <albums data="artistAlbumCtrl.albums" current-page="count"></albums>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="artistAlbumCtrl.cancel()">Close</button>
+    </div>
+</script>
