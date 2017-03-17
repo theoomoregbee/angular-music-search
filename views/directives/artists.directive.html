@@ -34,12 +34,18 @@
             </tr>
         </table>
 
-
+        <!--fetching indicator-->
+        <i ng-if="fetching" class="fa fa-spinner fa-spin paginator"></i>
+        <!--fetching indicator end-->
     </div>
 </div>
 
-<ul uib-pagination ng-change="paginator.pageChanged()" total-items="paginator.total" ng-model="paginator.currentPage"
+
+<!--paginator-->
+<ul uib-pagination ng-change="paginator.pageChanged()" total-items="paginator.total"
+    ng-model="paginator.currentPage"
     max-size="paginator.maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+<!--paginator end-->
 
 
 <script type="text/ng-template" id="artist.album.html">

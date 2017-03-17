@@ -92,8 +92,12 @@ section {
     padding: 6px;
 }
 
-ul.pagination-sm {
+ ul.pagination-sm {
     margin-left: 25%;
+}
+
+ i.paginator{
+    font-size: 45px;
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {

@@ -20,23 +20,25 @@
         }
     }
 
-    ArtistsController.$inject = ["$scope", "$uibModal"];
+    ArtistsController.$inject = ["$scope", "$uibModal", "Spotify"];
     /**
      * this is used to manage our directive
      * @param $scope
      * @param $uibModal
+     * @param Spotify
      * @constructor
      */
-    function ArtistsController($scope, $uibModal) {
+    function ArtistsController($scope, $uibModal, Spotify) {
         $scope.currentPage = $scope.data.offset + $scope.data.items.length;
         console.log("artist directive", $scope.data);
         $scope.openAlbums = openAlbums;
         $scope.paginator = {
             total: $scope.data.total,
-            maxSize:9,
-            currentPage:1,
+            maxSize: 9,
+            currentPage: 1,
             pageChanged: pageChanged
         };
+        $scope.fetching = false; //used to hold when the pagination is process
 
 
         /**
@@ -45,6 +47,34 @@
         function pageChanged() {
             console.log('Page changed to: ' + $scope.paginator.currentPage);
 
+            /**
+             * incase the user changes the page as we are fetching it should de reference the scope binding with the
+             * view
+             * @type {*}
+             */
+            var page = angular.copy($scope.paginator.currentPage);
+
+            $scope.fetching = true;
+            var offset = $scope.data.limit * page; //calculate pagination
+            var search_query = $scope.data.search;
+
+            Spotify.search(["artist"], search_query, offset, $scope.data.limit).then(function (success) {
+                $scope.fetching = false;
+                console.log(success);
+
+                $scope.data = success.data.artists;
+                $scope.data.search = search_query;
+
+                //update our paginate directive
+                $scope.paginator.currentPage = page;
+
+                //update our outer count of how many result fetched of total
+                $scope.currentPage = success.data.artists.offset;
+
+            }, function (failure) {
+                console.error(failure);
+                $scope.fetching = false;
+            });
 
         }
 

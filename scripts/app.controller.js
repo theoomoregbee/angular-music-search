@@ -78,7 +78,9 @@
                  */
                 angular.forEach(vm.search_result, function (value, key) {
                     vm.search_result[key] = success.data[key];
-                    vm.search_result[key].search = query;
+
+                    if (vm.search_result[key]) //incase it is not undefined, means it was searched for
+                        vm.search_result[key].search = query;
                 });
             }, function (failure) {
                 console.error(failure);
