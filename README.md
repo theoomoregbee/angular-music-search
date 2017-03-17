@@ -19,7 +19,7 @@ this is a music search using spotify and angular , the main build application is
 * `npm install bower -g`
 * `npm install -g karma-cli`
 * `npm install` in this root `app` folder
-* `npm install git+https://git@github.com/gulpjs/gulp.git#4.0` in this root `app` folder
+* `npm install git+https://git@github.com/gulpjs/gulp.git#4.0 -g` in this root `app` folder
 * `bower install` in this root `app` folder
 * `gulp serve` this will run and automatically run our browser
 * `gulp build` to build the distributive version
