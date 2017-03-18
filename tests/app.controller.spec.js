@@ -6,45 +6,7 @@ describe('Main APP Controllers', function () {
 
     // Before each test load our angular module
     beforeEach(angular.mock.module('MusicSearch'));
-
-    beforeEach(function () {
-        jasmine.addMatchers({
-            toBeBoolean: function () {
-                return {
-                    compare: function (actual, expected) {
-
-                        return {
-                            pass: (typeof actual === 'boolean'),
-                            message: expected
-                        };
-                    }
-                };
-            },
-            toBeFunction: function () {
-                return {
-                    compare: function (actual, expected) {
-
-                        return {
-                            pass: (typeof actual === 'function'),
-                            message: expected
-                        };
-                    }
-                };
-            },
-            toBeString: function () {
-                return {
-                    compare: function (actual, expected) {
-
-                        return {
-                            pass: (typeof actual === 'string'),
-                            message: expected
-                        };
-                    }
-                };
-            }
-        });
-    });
-
+    
     //call all the possible controllers here
     beforeEach(inject(function ($controller, $rootScope, _Spotify_) {
         scope = $rootScope.$new(); //get a child scope
