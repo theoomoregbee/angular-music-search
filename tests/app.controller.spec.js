@@ -6,7 +6,7 @@ describe('Main APP Controllers', function () {
 
     // Before each test load our angular module
     beforeEach(angular.mock.module('MusicSearch'));
-    
+
     //call all the possible controllers here
     beforeEach(inject(function ($controller, $rootScope, _Spotify_) {
         scope = $rootScope.$new(); //get a child scope

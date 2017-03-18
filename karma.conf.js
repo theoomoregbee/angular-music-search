@@ -37,6 +37,10 @@ module.exports = function (config) {
             //services
             './scripts/services/spotify.service.js',
 
+            //directives
+            './scripts/directives/albums.directive.js',
+            './scripts/directives/artists.directive.js',
+
             //controllers
             './scripts/app.controller.js',
 
@@ -59,7 +63,7 @@ module.exports = function (config) {
 
         ngHtml2JsPreprocessor: {
             // the name of the Angular module to create
-            moduleName: "app.templates"
+            moduleName: "MusicSearch.templates"
         },
 
 

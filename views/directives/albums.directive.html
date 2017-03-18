@@ -7,7 +7,7 @@
         <h3><a href="{{item.external_urls.spotify}}">{{item.name}}</a></h3>
         <p>
             <span ng-repeat="artist in item.artists">
-            <a href="{{artist.external_urls.spotify}}"> {{artist.name}} </a> {{$last?'':','}}
+            <a href="{{artist.external_urls.spotify}}">{{artist.name}}</a> {{$last?'':', '}}
         </span>
         </p>
     </div>
