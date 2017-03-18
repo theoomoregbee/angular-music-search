@@ -31,6 +31,15 @@ module.exports = function (config) {
             //modules
             './scripts/app.module.js',
 
+            //settings
+            './scripts/app.settings.js',
+
+            //services
+            './scripts/services/spotify.service.js',
+
+            //controllers
+            './scripts/app.controller.js',
+
             //tests
             './tests/**/*.js'
         ],
