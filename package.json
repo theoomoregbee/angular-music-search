@@ -4,7 +4,7 @@
   "description": "this is used to search through spotify api",
   "main": "web.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
