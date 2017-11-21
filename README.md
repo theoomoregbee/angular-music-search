@@ -3,8 +3,8 @@ this is a music search using spotify and angular , the main build application is
 [Spotify Api Endpoint](https://developer.spotify.com/web-api/search-item/)
 
 ## Screenshots
-![](screenshots/Screen Shot 2017-03-18 at 10.35.52 AM.png)
-![](screenshots/Screen Shot 2017-03-18 at 10.36.00 AM.png)
+![](screenshots/Screen2.png)
+![](screenshots/Screen1.png)
 ![](screenshots/typehead.png)
 
 ## Features
